@@ -2,10 +2,16 @@
 
 NVIM_VERSION=${NVIM_VERSION:-v0.9.5}
 
+
+# alias
+
+alias ff="vim +\$(rg -n . | fzf | awk -F: '{print '+'\$2,\$1}')"
+
+
 # fzf
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+[ ! -d ~/.fzf ] && (git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install)
+
 
 exit 0
 
